@@ -3,3 +3,11 @@
 ################################################################################
 
 /DataBaseModel/.vs/DataBaseModel/v15
+/DataBaseModel/DataBaseModel/bin/Debug
+/DataBaseModel/DataBaseModel/obj/Debug
+/DataBaseModel/packages
+/DataBaseModel/DataBaseModel.sln
+/DataBaseModel/CalculationModule/bin/Debug
+/DataBaseModel/CalculationModule/obj/Debug
+/DataBaseModel/TestApplication/bin/Debug
+/DataBaseModel/TestApplication/obj/Debug
