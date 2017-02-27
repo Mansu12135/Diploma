@@ -1,22 +1,23 @@
 ﻿
 namespace CalculationModule
 {
-    internal struct ResearchFieldResult
+    public struct ResearchFieldResult
     {
-        public string FieldName;
+        public object FieldValue;
         public ResearchLevel Level;
     }
 
-    internal enum ResearchLevel
+    public enum ResearchLevel
     {
-        Low = 0,
-        UpperLow = 1,
-        LowMedium = 2,
-        Medium = 3,
-        UpperMedium = 4,
-        Lowhigh = 5,
-        High = 6,
-        UpeerHigh = 7,
-        Critical = 8,
+        None = 0,
+        Low = 1,
+        UpperLow = 2,
+        LowMedium = 3,
+        Medium = 4,
+        UpperMedium = 5,
+        Lowhigh = 6,
+        High = 7,
+        UpperHigh = 8,
+        Critical = 9,
     }
 }

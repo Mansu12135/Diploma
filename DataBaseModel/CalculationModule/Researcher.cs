@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Package;
 
 namespace CalculationModule
 {
-    internal class Researcher<T> : ICalculator where T : IData
+    public class Researcher<T> : ICalculator where T : IData
     {
         Dictionary<string, ResearchFieldResult> ICalculator.CalculationData => vCalculationData ?? (vCalculationData = new Dictionary<string, ResearchFieldResult>());
         private Dictionary<string, ResearchFieldResult> vCalculationData;
@@ -13,8 +15,20 @@ namespace CalculationModule
 
         public void Calculate(IData data)
         {
+            ProcessedData?.Invoke(GetCalculation(data));
+        }
 
-            ProcessedData?.Invoke(vCalculationData);
+        private Dictionary<string, ResearchFieldResult> GetCalculation(IData data)
+        {
+            var dictionary = new Dictionary<string, ResearchFieldResult>();
+            var serializableData = data as SerializableClass;
+            if (serializableData == null) { return null; }
+            dictionary.Add("Location", new ResearchFieldResult{FieldValue = serializableData.Location, Level = ResearchLevel.None});
+            dictionary.Add("DateID", new ResearchFieldResult { FieldValue = serializableData.DateID, Level = ResearchLevel.None });
+            dictionary.Add("Ammunittions", new ResearchFieldResult { FieldValue = serializableData.Ammunittions, Level = ResearchLevel.UpperLow });
+            dictionary.Add("BulletProofVestState", new ResearchFieldResult { FieldValue = serializableData.BulletProofVestState, Level = ResearchLevel.UpperLow });
+
+            return dictionary;
         }
     }
 }
