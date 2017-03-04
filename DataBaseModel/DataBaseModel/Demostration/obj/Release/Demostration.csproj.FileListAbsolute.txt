@@ -1,0 +1,39 @@
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\Demostration.exe.config
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\Demostration.exe
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\Demostration.pdb
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\AjaxMin.dll
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\CalculationModule.dll
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\GMap.NET.Core.dll
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\Gmap.net.dll
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\GMap.NET.WindowsPresentation.dll
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\Package.dll
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\FirstServer.dll
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\DataBaseModel.dll
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\EntityFramework.dll
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\CalculationModule.pdb
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\Gmap.net.pdb
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\Package.pdb
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\FirstServer.pdb
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\FirstServer.dll.config
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\DataBaseModel.pdb
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\DataBaseModel.dll.config
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\EntityFramework.xml
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\bin\Release\ru\EntityFramework.resources.dll
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\obj\Release\Demostration.csprojResolveAssemblyReference.cache
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\obj\Release\MainWindow.g.cs
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\obj\Release\App.g.cs
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\obj\Release\Demostration_MarkupCompile.cache
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\obj\Release\Demostration_MarkupCompile.lref
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\obj\Release\MainWindow.baml
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\obj\Release\Demostration.g.resources
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\obj\Release\Demostration.Properties.Resources.resources
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\obj\Release\Demostration.csproj.GenerateResource.Cache
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\obj\Release\Demostration.exe
+C:\Users\Никита\documents\visual studio 2017\Projects\DataBaseModel\Demostration\obj\Release\Demostration.pdb
+E:\Diploma\Diploma\DataBaseModel\Demostration\obj\Release\Demostration.csprojResolveAssemblyReference.cache
+E:\Diploma\Diploma\DataBaseModel\Demostration\obj\Release\MainWindow.g.cs
+E:\Diploma\Diploma\DataBaseModel\Demostration\obj\Release\App.g.cs
+E:\Diploma\Diploma\DataBaseModel\Demostration\obj\Release\Demostration_MarkupCompile.cache
+E:\Diploma\Diploma\DataBaseModel\Demostration\obj\Release\Demostration_MarkupCompile.lref
+E:\Diploma\Diploma\DataBaseModel\Demostration\obj\Release\Demostration.exe
+E:\Diploma\Diploma\DataBaseModel\Demostration\obj\Release\Demostration.pdb
