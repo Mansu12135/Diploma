@@ -125,10 +125,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Package\Package\Package.csproj">
-      <Project>{29fbeb22-bd36-4411-b044-191b8739c900}</Project>
-      <Name>Package</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CalculationModule\CalculationModule.csproj">
       <Project>{2C005318-6647-4AA9-9F70-0E7215EC36C7}</Project>
       <Name>CalculationModule</Name>
