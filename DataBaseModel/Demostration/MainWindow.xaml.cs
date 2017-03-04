@@ -11,6 +11,7 @@ using GMap.NET;
 using GMap.NET.MapProviders;
 using CalculationModule;
 using GMap.NET.WindowsPresentation;
+using Package;
 
 namespace Demostration
 {
@@ -20,9 +21,12 @@ namespace Demostration
     public partial class MainWindow : Window
     {
         private Module Calculation;
+        private Informator InformWindow;
         public MainWindow()
         {
             InitializeComponent();
+            InformWindow = new Informator();
+            InformWindow.Show();
             Map.MapProvider = GoogleMapProvider.Instance;
             Map.DragButton = MouseButton.Left;
             Map.Manager.BoostCacheEngine = true;
@@ -45,9 +49,12 @@ namespace Demostration
         {
             Dispatcher.Invoke(() =>
             {
+                int id = (int)processeDictionary["DateID"].FieldValue;
+                decimal solderID = (decimal) processeDictionary["SolderID"].FieldValue;
+                InformWindow.Items.Add(new DataGridCollectionItem{ValueName = "Pulse" , Value = processeDictionary["Pulse"].FieldValue.ToString(), Rezult = processeDictionary["Pulse"].Level.ToString(), DataID = id, SolderID = solderID });
                 var position = DbGeography.FromText(processeDictionary["Location"].FieldValue.ToString());
                 Map.Markers.Clear();
-                Map.Markers.Add(new GMapMarker(new PointLatLng(position.Latitude.Value, position.Longitude.Value)){Shape = new Image{Source = new BitmapImage(new Uri("Resources/fril(1).jpg", UriKind.Relative)), Width = 25, Height = 25,RenderSize = new Size(25,25), Stretch = Stretch.Fill}});
+                Map.Markers.Add(new GMapMarker(new PointLatLng(position.Latitude.Value, position.Longitude.Value)) { Shape = new Image { Source = new BitmapImage(new Uri("Resources/fril(1).jpg", UriKind.Relative)), Width = 25, Height = 25, RenderSize = new Size(25, 25), Stretch = Stretch.Fill } });
             });
         }
     }

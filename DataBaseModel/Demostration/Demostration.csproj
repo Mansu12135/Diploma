@@ -84,6 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Informator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Informator.xaml.cs">
+      <DependentUpon>Informator.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -128,6 +135,10 @@
     <ProjectReference Include="..\CalculationModule\CalculationModule.csproj">
       <Project>{2C005318-6647-4AA9-9F70-0E7215EC36C7}</Project>
       <Name>CalculationModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Package\Package\Package.csproj">
+      <Project>{29fbeb22-bd36-4411-b044-191b8739c900}</Project>
+      <Name>Package</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
