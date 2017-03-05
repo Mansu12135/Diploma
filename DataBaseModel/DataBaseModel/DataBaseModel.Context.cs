@@ -28,5 +28,6 @@ namespace DataBaseModel
         public virtual DbSet<Tasks> Tasks { get; set; }
         public virtual DbSet<TaskStack> TaskStack { get; set; }
         public virtual DbSet<Troops> Troops { get; set; }
+        public virtual DbSet<Weather> Weather { get; set; }
     }
 }

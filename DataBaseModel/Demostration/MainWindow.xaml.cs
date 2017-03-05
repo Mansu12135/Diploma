@@ -12,6 +12,7 @@ using GMap.NET.MapProviders;
 using CalculationModule;
 using GMap.NET.WindowsPresentation;
 using Package;
+using System.Windows.Media.Animation;
 
 namespace Demostration
 {
@@ -54,8 +55,37 @@ namespace Demostration
                 InformWindow.Items.Add(new DataGridCollectionItem{ValueName = "Pulse" , Value = processeDictionary["Pulse"].FieldValue.ToString(), Rezult = processeDictionary["Pulse"].Level.ToString(), DataID = id, SolderID = solderID });
                 var position = DbGeography.FromText(processeDictionary["Location"].FieldValue.ToString());
                 Map.Markers.Clear();
-                Map.Markers.Add(new GMapMarker(new PointLatLng(position.Latitude.Value, position.Longitude.Value)) { Shape = new Image { Source = new BitmapImage(new Uri("Resources/fril(1).jpg", UriKind.Relative)), Width = 25, Height = 25, RenderSize = new Size(25, 25), Stretch = Stretch.Fill } });
+                Border container = new Border() { BorderBrush = new SolidColorBrush(Colors.Red), BorderThickness = new Thickness(1) };
+                container.Child = new Image { Source = new BitmapImage(new Uri("Resources/soldier.png", UriKind.Relative)), Width = 25, Height = 30, RenderSize = new Size(25, 30), Stretch = Stretch.Fill };
+                Map.Markers.Add(new GMapMarker(new PointLatLng(position.Latitude.Value, position.Longitude.Value)) { Shape = container });
             });
+        }
+
+        private void Blinking()
+        {
+          //  while (true)
+           // {
+                Animate();
+           // }
+        }
+        private void Animate()
+        {
+            DoubleAnimation colorChangeAnimation = new DoubleAnimation();
+            colorChangeAnimation.From = 1;
+            colorChangeAnimation.To = 0;
+            colorChangeAnimation.Duration = new Duration(new TimeSpan(4));
+            GradientStop1.BeginAnimation(GradientStop.OffsetProperty, colorChangeAnimation);
+            DoubleAnimation colorChangeAnimation1 = new DoubleAnimation();
+            colorChangeAnimation1.From = 0;
+            colorChangeAnimation1.To = 1;
+            colorChangeAnimation1.Duration = new Duration(new TimeSpan(4));
+            GradientStop1.BeginAnimation(GradientStop.OffsetProperty, colorChangeAnimation1);
+
+        }
+
+        private void Border2_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Blinking();
         }
     }
 }

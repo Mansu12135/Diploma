@@ -8,6 +8,9 @@
         <EntityTypeShape EntityType="DemoDataofTroopModel.Tasks" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoDataofTroopModel.TaskStack" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoDataofTroopModel.Troops" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDataofTroopModel.Weather" Width="1.5" PointX="0.75" PointY="6.375" />
+        <AssociationConnector Association="DemoDataofTroopModel.FK_TaskStack_TaskStack" />
+        <AssociationConnector Association="DemoDataofTroopModel.FK_TaskStack_Weather" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

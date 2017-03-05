@@ -12,20 +12,20 @@ namespace DataBaseModel
     using System;
     using System.Collections.Generic;
     
-    public partial class TaskStack
+    public partial class Weather
     {
-        public decimal SolderID { get; set; }
-        public int DateID { get; set; }
-        public System.Data.Entity.Spatial.DbGeography Location { get; set; }
-        public int Pulse { get; set; }
-        public int BulletProofVestState { get; set; }
-        public int FlickerEyes { get; set; }
-        public int Ammunittions { get; set; }
-        public double TemperatureBarell { get; set; }
-        public int WeatherID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Weather()
+        {
+            this.TaskStack = new HashSet<TaskStack>();
+        }
     
-        public virtual TaskStack TaskStack1 { get; set; }
-        public virtual TaskStack TaskStack2 { get; set; }
-        public virtual Weather Weather { get; set; }
+        public int WeatherID { get; set; }
+        public int Humidity { get; set; }
+        public double WindSpeed { get; set; }
+        public int Pressure { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaskStack> TaskStack { get; set; }
     }
 }

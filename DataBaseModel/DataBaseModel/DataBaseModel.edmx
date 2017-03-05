@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище DemoDataofTroopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище DemoDataofTroopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Tasks">
           <Key>
             <PropertyRef Name="Id" />
@@ -18,6 +18,7 @@
           <Key>
             <PropertyRef Name="SolderID" />
             <PropertyRef Name="DateID" />
+            <PropertyRef Name="WeatherID" />
           </Key>
           <Property Name="SolderID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="DateID" Type="int" Nullable="false" />
@@ -27,6 +28,7 @@
           <Property Name="FlickerEyes" Type="int" Nullable="false" />
           <Property Name="Ammunittions" Type="int" Nullable="false" />
           <Property Name="TemperatureBarell" Type="float" Nullable="false" />
+          <Property Name="WeatherID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Troops">
           <Key>
@@ -37,13 +39,38 @@
           <Property Name="Solder" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Role" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Weather">
+          <Key>
+            <PropertyRef Name="WeatherID" />
+          </Key>
+          <Property Name="WeatherID" Type="int" Nullable="false" />
+          <Property Name="Humidity" Type="int" Nullable="false" />
+          <Property Name="WindSpeed" Type="float" Nullable="false" />
+          <Property Name="Pressure" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TaskStack_Weather">
+          <End Role="Weather" Type="Self.Weather" Multiplicity="1" />
+          <End Role="TaskStack" Type="Self.TaskStack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weather">
+              <PropertyRef Name="WeatherID" />
+            </Principal>
+            <Dependent Role="TaskStack">
+              <PropertyRef Name="WeatherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище DemoDataofTroopModelContainer">
           <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaskStack" EntityType="Self.TaskStack" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Troops" EntityType="Self.Troops" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weather" EntityType="Self.Weather" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TaskStack_Weather" Association="Self.FK_TaskStack_Weather">
+            <End Role="Weather" EntitySet="Weather" />
+            <End Role="TaskStack" EntitySet="TaskStack" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DemoDataofTroopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -60,6 +87,7 @@
           <Key>
             <PropertyRef Name="SolderID" />
             <PropertyRef Name="DateID" />
+            <PropertyRef Name="WeatherID" />
           </Key>
           <Property Name="SolderID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="DateID" Type="Int32" Nullable="false" />
@@ -69,6 +97,10 @@
           <Property Name="FlickerEyes" Type="Int32" Nullable="false" />
           <Property Name="Ammunittions" Type="Int32" Nullable="false" />
           <Property Name="TemperatureBarell" Type="Double" Nullable="false" />
+          <Property Name="WeatherID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TaskStack1" Relationship="DemoDataofTroopModel.FK_TaskStack_TaskStack" FromRole="TaskStack" ToRole="TaskStack1" />
+          <NavigationProperty Name="TaskStack2" Relationship="DemoDataofTroopModel.FK_TaskStack_TaskStack" FromRole="TaskStack1" ToRole="TaskStack" />
+          <NavigationProperty Name="Weather" Relationship="DemoDataofTroopModel.FK_TaskStack_Weather" FromRole="TaskStack" ToRole="Weather" />
         </EntityType>
         <EntityType Name="Troops">
           <Key>
@@ -83,7 +115,54 @@
           <EntitySet Name="Tasks" EntityType="Self.Tasks" />
           <EntitySet Name="TaskStack" EntityType="Self.TaskStack" />
           <EntitySet Name="Troops" EntityType="Self.Troops" />
+          <EntitySet Name="Weather" EntityType="DemoDataofTroopModel.Weather" />
+          <AssociationSet Name="FK_TaskStack_TaskStack" Association="DemoDataofTroopModel.FK_TaskStack_TaskStack">
+            <End Role="TaskStack" EntitySet="TaskStack" />
+            <End Role="TaskStack1" EntitySet="TaskStack" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskStack_Weather" Association="DemoDataofTroopModel.FK_TaskStack_Weather">
+            <End Role="Weather" EntitySet="Weather" />
+            <End Role="TaskStack" EntitySet="TaskStack" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Weather">
+          <Key>
+            <PropertyRef Name="WeatherID" />
+          </Key>
+          <Property Name="WeatherID" Type="Int32" Nullable="false" />
+          <Property Name="Humidity" Type="Int32" Nullable="false" />
+          <Property Name="WindSpeed" Type="Double" Nullable="false" />
+          <Property Name="Pressure" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TaskStack" Relationship="DemoDataofTroopModel.FK_TaskStack_Weather" FromRole="Weather" ToRole="TaskStack" />
+        </EntityType>
+        <Association Name="FK_TaskStack_TaskStack">
+          <End Type="DemoDataofTroopModel.TaskStack" Role="TaskStack" Multiplicity="1" />
+          <End Type="DemoDataofTroopModel.TaskStack" Role="TaskStack1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskStack">
+              <PropertyRef Name="SolderID" />
+              <PropertyRef Name="DateID" />
+              <PropertyRef Name="WeatherID" />
+            </Principal>
+            <Dependent Role="TaskStack1">
+              <PropertyRef Name="SolderID" />
+              <PropertyRef Name="DateID" />
+              <PropertyRef Name="WeatherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskStack_Weather">
+          <End Type="DemoDataofTroopModel.Weather" Role="Weather" Multiplicity="1" />
+          <End Type="DemoDataofTroopModel.TaskStack" Role="TaskStack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weather">
+              <PropertyRef Name="WeatherID" />
+            </Principal>
+            <Dependent Role="TaskStack">
+              <PropertyRef Name="WeatherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -102,6 +181,7 @@
           <EntitySetMapping Name="TaskStack">
             <EntityTypeMapping TypeName="DemoDataofTroopModel.TaskStack">
               <MappingFragment StoreEntitySet="TaskStack">
+                <ScalarProperty Name="WeatherID" ColumnName="WeatherID" />
                 <ScalarProperty Name="SolderID" ColumnName="SolderID" />
                 <ScalarProperty Name="DateID" ColumnName="DateID" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
@@ -119,6 +199,16 @@
                 <ScalarProperty Name="TroopId" ColumnName="TroopId" />
                 <ScalarProperty Name="Solder" ColumnName="Solder" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weather">
+            <EntityTypeMapping TypeName="DemoDataofTroopModel.Weather">
+              <MappingFragment StoreEntitySet="Weather">
+                <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+                <ScalarProperty Name="WindSpeed" ColumnName="WindSpeed" />
+                <ScalarProperty Name="Humidity" ColumnName="Humidity" />
+                <ScalarProperty Name="WeatherID" ColumnName="WeatherID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

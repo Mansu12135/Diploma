@@ -6,8 +6,145 @@
         xmlns:local="clr-namespace:Demostration"
         xmlns:WindowsPresentation="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation" x:Class="Demostration.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+        Title="MainWindow" Height="488.614" Width="954.703" Loaded="Window_Loaded" Background="#FF272727">
+    <Window.Resources>
+        
+        <LinearGradientBrush x:Key="Bord1Down" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF7E7E7E" Offset="0.532"/>
+            <GradientStop Color="#FFE8E8E8"/>
+            <GradientStop Color="#FFE6E6E6" Offset="1"/>
+            <GradientStop Color="#FF212121" Offset="0.528"/>
+        </LinearGradientBrush>
+
+        <RadialGradientBrush x:Key="Bord1DownRed">
+            <GradientStop Color="#FF911D1D" Offset="0.94"/>
+            <GradientStop Color="#FFFFC5C5" Offset="0.021"/>
+            <GradientStop Color="#FFEC4242" Offset="0.584"/>
+        </RadialGradientBrush >
+        <LinearGradientBrush x:Key="Bord1DownEllips" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF911D1D" Offset="0.996"/>
+            <GradientStop/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="Bord1DownLabel" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFB9A8A8" Offset="0"/>
+            <GradientStop Color="#FFE0E0E0" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="Bord1Up" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF7E7E7E" Offset="0.468"/>
+            <GradientStop Color="#FFE8E8E8" Offset="1"/>
+            <GradientStop Color="#FFE6E6E6" Offset="0"/>
+            <GradientStop Color="#FF212121" Offset="0.472"/>
+        </LinearGradientBrush>
+        <RadialGradientBrush x:Key="Bord1UpRed">
+            <GradientStop Color="#FFFD2727" Offset="0.854"/>
+            <GradientStop Color="#FFF3B1B1" Offset="0.021"/>
+        </RadialGradientBrush>
+        <LinearGradientBrush x:Key="Bord1UpEllips" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFFDD0D0" Offset="0"/>
+            <GradientStop Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="Bord1UpLabel" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFFFD2D2" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="Bord2SendEnter" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF28A5D4" Offset="1"/>
+            <GradientStop Color="#FF3E92B2"/>
+        </LinearGradientBrush>
+        <Style x:Key="Anim">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Border.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Angle"
+                                                             To="360" Duration="0:0:1" RepeatBehavior="Forever"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
     <Grid x:Name="Grid">
-        <WindowsPresentation:GMapControl x:Name="Map" Margin="10,19" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="191*"/>
+            <RowDefinition Height="38*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF474747" Offset="0.465"/>
+                <GradientStop Color="#FF131313" Offset="0.987"/>
+                <GradientStop Color="#FF4D4D4D" Offset="0.509"/>
+                <GradientStop Color="#FF343434" Offset="0.439"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <WindowsPresentation:GMapControl x:Name="Map" Margin="35,35,35,14" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+       
+        <Grid x:Name="GridStart" Margin="54,0,0,0"  Cursor="Hand"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Border  Width="70" Height="70" CornerRadius="60" BorderThickness="0" Margin="0" >
+                <Border RenderTransformOrigin="0.5,0.5"  Style="{DynamicResource Anim}" CornerRadius="60" BorderThickness="4" Padding="1">
+                    <Border.RenderTransform>
+                        <RotateTransform/>
+                    </Border.RenderTransform>
+
+
+                </Border>
+            </Border>
+            <Border x:Name="Border1" RenderTransformOrigin="0.5,0.5" CornerRadius="60" Margin="0,-1,0,0" BorderThickness="2,1" Height="63" Width="63" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF7E7E7E" Offset="0.468"/>
+                        <GradientStop Color="#FFE8E8E8" Offset="1"/>
+                        <GradientStop Color="#FFE6E6E6" Offset="0"/>
+                        <GradientStop Color="#FF212121" Offset="0.472"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Border.RenderTransform>
+                    <RotateTransform/>
+                </Border.RenderTransform>
+                <Border x:Name="Border2" RenderTransformOrigin="0.488,0.685" CornerRadius="60" Margin="0" BorderThickness="0" MouseUp="Border2_MouseUp" >
+                    <Border.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FFCFC8C8" Offset="0.455"/>
+                            <GradientStop Color="#FF979090" Offset="1"/>
+                            <GradientStop Color="#FF979090" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <Border.RenderTransform>
+                        <RotateTransform/>
+                    </Border.RenderTransform>
+                    <Border.Background>
+                        <RadialGradientBrush>
+                            <GradientStop x:Name="GradientStop1" Color="#FFFD2727" Offset="0.854"/>
+                            <GradientStop Color="#FFF3B1B1" Offset="0.021"/>
+                        </RadialGradientBrush>
+                    </Border.Background>
+                    <Ellipse x:Name="Ellips" Margin="7,3,7,23">
+                        <Ellipse.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFDD0D0" Offset="0"/>
+                                <GradientStop Offset="1"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+            </Border>
+            <Label x:Name="LabelStart" Content=""  FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Comic Sans MS">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFFD2D2" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+                <!-- <Label.Effect>
+                    <DropShadowEffect ></DropShadowEffect>
+                </Label.Effect>
+            -->
+            </Label>
+        </Grid>
     </Grid>
 </Window>

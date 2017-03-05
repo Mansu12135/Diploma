@@ -92,6 +92,9 @@
     <Compile Include="Troops.cs">
       <DependentUpon>ModelGenerator.tt</DependentUpon>
     </Compile>
+    <Compile Include="Weather.cs">
+      <DependentUpon>ModelGenerator.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
