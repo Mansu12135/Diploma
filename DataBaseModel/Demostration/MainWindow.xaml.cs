@@ -28,7 +28,7 @@ namespace Demostration
             InitializeComponent();
             InformWindow = new Informator();
             InformWindow.Show();
-            Map.MapProvider = GoogleMapProvider.Instance;
+            Map.MapProvider = GMapProviders.GoogleSatelliteMap;
             Map.DragButton = MouseButton.Left;
             Map.Manager.BoostCacheEngine = true;
             Map.ShowCenter = false;
