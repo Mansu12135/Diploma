@@ -34,7 +34,8 @@ namespace DataBaseModel
                 Pulse = data.Pulse,
                 SolderID = data.SolderID,
                 TemperatureBarell = data.TemperatureBarell,
-                Location = data.Location.AsText()
+                Location = data.Location.AsText(),
+                WeatherID = new Package.Weather { Humidity = data.Weather.Humidity, WindSpeed = data.Weather.Pressure, Pressure = data.Weather.Pressure, WeatherID = data.Weather.WeatherID }
             }, ClientSocket);
         }
     }
