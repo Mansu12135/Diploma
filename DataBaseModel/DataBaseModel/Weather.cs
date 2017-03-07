@@ -24,6 +24,7 @@ namespace DataBaseModel
         public int Humidity { get; set; }
         public double WindSpeed { get; set; }
         public int Pressure { get; set; }
+        public int Tempherature { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaskStack> TaskStack { get; set; }
