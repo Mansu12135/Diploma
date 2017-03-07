@@ -22,20 +22,29 @@ namespace CalculationModule
         {
             var dictionary = new Dictionary<string, ResearchFieldResult>();
             var serializableData = data as SerializableClass;
-            ResearchFieldResult rezult;// = new ResearchFieldResult();
             if (serializableData == null) { return null; }
+
+            ResearchFieldResult rezult;
             dictionary.Add("Location", new ResearchFieldResult { FieldValue = serializableData.Location, Level = ResearchLevel.None });
             dictionary.Add("NatureOfBattle", new ResearchFieldResult { FieldValue = null, Level = ResearchLevel.None });
-            rezult = new ResearchFieldResult();
-            new WeatherRezulter().GetRezult(ref rezult, serializableData.WeatherID);
-            dictionary.Add("Weather", new ResearchFieldResult { FieldValue = null, Level = ResearchLevel.None });
             dictionary.Add("SolderID", new ResearchFieldResult { FieldValue = serializableData.SolderID, Level = ResearchLevel.None });
             dictionary.Add("DateID", new ResearchFieldResult { FieldValue = serializableData.DateID, Level = ResearchLevel.None });
+
+            rezult = new ResearchFieldResult();
+            new WeatherRezulter().GetRezult(ref rezult, serializableData.WeatherID);
+            dictionary.Add("Weather", rezult);
+
             rezult = new ResearchFieldResult();
             new PulseRezulter(serializableData.Pulse.GetType(), "Pulse", serializableData.GetType()).GetRezult(ref rezult, serializableData);
             dictionary.Add("Pulse", rezult);
-            dictionary.Add("Ammunittions", new ResearchFieldResult { FieldValue = serializableData.Ammunittions, Level = ResearchLevel.UpperLow });
-            dictionary.Add("BulletProofVestState", new ResearchFieldResult { FieldValue = serializableData.BulletProofVestState, Level = ResearchLevel.UpperLow });
+
+            rezult = new ResearchFieldResult();
+            new AmmunittionRezulter(serializableData.BulletProofVestState.GetType(), "Ammunittions", serializableData.GetType(), 250).GetRezult(ref rezult, serializableData);
+            dictionary.Add("Ammunittions", rezult);
+
+            rezult = new ResearchFieldResult();
+            new BulletProofRezulter(serializableData.BulletProofVestState.GetType(), "BulletProofVestState", serializableData.GetType()).GetRezult(ref rezult, serializableData);
+            dictionary.Add("BulletProofVestState", rezult);
 
             return dictionary;
         }

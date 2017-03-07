@@ -22,7 +22,8 @@ namespace Package
     {
         public int WeatherID { get; set; }
         public int Humidity { get; set; }
-        public float WindSpeed { get; set; }
+        public double WindSpeed { get; set; }
         public int Pressure { get; set; }
+        public int Tempherature { get; set; }
     }
 }

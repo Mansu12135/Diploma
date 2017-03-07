@@ -17,10 +17,11 @@ namespace DataBaseModel
         public static void StartSend()
         {
             List<decimal> objects = DataBaseWorker.GetSoldersInTroop(DataBaseWorker.Troop);
-            objects.RemoveRange(1,5);
+            objects.RemoveRange(2,4);
             foreach (var obj in objects)
             {
                 new Thread(() => CreateSender(obj)).Start();
+                Thread.Sleep(100);
                 //ThreadPool.QueueUserWorkItem(CreateSender, new object[]{ objec });
             }
         }

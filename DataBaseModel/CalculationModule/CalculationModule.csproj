@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmmunittionRezulter.cs" />
+    <Compile Include="BulletProofRezulter.cs" />
     <Compile Include="FieldRezulter.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="ICalculator.cs" />
@@ -58,7 +60,7 @@
     <Compile Include="PulseRezulter.cs" />
     <Compile Include="Researcher.cs" />
     <Compile Include="ResearchResult.cs" />
-    <Compile Include="WetaherRezulter.cs" />
+    <Compile Include="WeatherRezulter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

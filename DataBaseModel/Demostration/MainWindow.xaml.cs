@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Spatial;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,6 +14,7 @@ using CalculationModule;
 using GMap.NET.WindowsPresentation;
 using Package;
 using System.Windows.Media.Animation;
+using Microsoft.Ajax.Utilities;
 
 namespace Demostration
 {
@@ -54,9 +56,9 @@ namespace Demostration
                 decimal solderID = (decimal) processeDictionary["SolderID"].FieldValue;
                 InformWindow.Items.Add(new DataGridCollectionItem{ValueName = "Pulse" , Value = processeDictionary["Pulse"].FieldValue.ToString(), Rezult = processeDictionary["Pulse"].Level.ToString(), DataID = id, SolderID = solderID });
                 var position = DbGeography.FromText(processeDictionary["Location"].FieldValue.ToString());
-                Map.Markers.Clear();
-                Border container = new Border() { BorderBrush = new SolidColorBrush(Colors.Red), BorderThickness = new Thickness(1) };
-                container.Child = new Image { Source = new BitmapImage(new Uri("Resources/soldier.png", UriKind.Relative)), Width = 25, Height = 30, RenderSize = new Size(25, 30), Stretch = Stretch.Fill };
+                Map.Markers.Where(item => item.Tag == solderID.ToString()).ForEach(item => Map.Markers.Remove(item));
+                Border container = new Border{ BorderBrush = new SolidColorBrush(Colors.Red), BorderThickness = new Thickness(1) };
+                container.Child = new Image { Source = new BitmapImage(new Uri("Resources/soldier.png", UriKind.Relative)), Width = 25, Height = 30, RenderSize = new Size(25, 30), Stretch = Stretch.Fill, Tag = solderID.ToString()};
                 Map.Markers.Add(new GMapMarker(new PointLatLng(position.Latitude.Value, position.Longitude.Value)) { Shape = container });
             });
         }

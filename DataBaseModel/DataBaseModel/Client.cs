@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Sockets;
+using System.Resources;
 using System.Windows.Forms;
 using DataBaseModel;
 using Package;
@@ -23,20 +24,10 @@ namespace DataBaseModel
             }
         }
 
-        private void DoWork(TaskStack data)
+        private void DoWork(SerializableClass data)
         {
-            Sender.Send(new SerializableClass
-            {
-                Ammunittions = data.Ammunittions,
-                DateID = data.DateID,
-                BulletProofVestState = data.BulletProofVestState,
-                FlickerEyes = data.FlickerEyes,
-                Pulse = data.Pulse,
-                SolderID = data.SolderID,
-                TemperatureBarell = data.TemperatureBarell,
-                Location = data.Location.AsText(),
-                WeatherID = new Package.Weather { Humidity = data.Weather.Humidity, WindSpeed = data.Weather.Pressure, Pressure = data.Weather.Pressure, WeatherID = data.Weather.WeatherID }
-            }, ClientSocket);
+          
+            Sender.Send(data, ClientSocket);
         }
     }
 }

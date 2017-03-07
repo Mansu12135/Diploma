@@ -1,4 +1,5 @@
-﻿using Timer = System.Windows.Forms.Timer;
+﻿using Package;
+using Timer = System.Windows.Forms.Timer;
 
 namespace DataBaseModel
 {
@@ -24,7 +25,7 @@ namespace DataBaseModel
             Count++;
         }
 
-        public delegate void GetsData(TaskStack data);
+        public delegate void GetsData(SerializableClass data);
 
         public event GetsData ReceivedData; 
     }
