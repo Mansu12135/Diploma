@@ -1,12 +1,17 @@
-﻿<Window x:Class="Demostration.Informator"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demostration"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="Demostration.Informator"
         mc:Ignorable="d"
         Title="Informator" Height="300" Width="300">
     <Grid>
-        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="229" Margin="10,10,0,0" VerticalAlignment="Top" Width="272" AutoGenerateColumns="True"/>
+        <dxg:GridControl x:Name="DataGrid" AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" VerticalAlignment="Top" Height="269" Width="292">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
     </Grid>
 </Window>
